@@ -1,14 +1,28 @@
 html, body {
   height: 100%;
   background: linear-gradient(135deg, #3a90e8, #a1ddf8) fixed;
-  color: #565B5C;
 }
 
-#temp {
+/* #temp {
   min-height: 100%;
   width: 73%;
   margin: 0 auto;
   padding: 3.5rem 0;
+} */
+
+#temp {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 73%;
+  padding: 3.5rem 0;
+  margin: 0 auto;
+}
+
+main {
+  width: 100%;
 }
 
 header {
@@ -23,19 +37,19 @@ header h2 {
   margin: 0;
 }
 
-.timeslot-base {
+.timeslots-base {
   background-color: #fff;
 }
 
-.timeslot-header {
-  background-color: #85C8F4;
+.timeslots-header {
+  background-color: rgb(62, 138, 189);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: .78rem;
 }
 
-.timeslot-base h3 {
+.timeslots-base h3 {
   font-size: 1.3rem;
   font-weight: bold;
   color: #fff;
@@ -48,7 +62,13 @@ header h2 {
 }
 
 .timeslot a {
-  color: #000;
+  color: #565B5C;
+}
+
+.timeslot a:hover,
+.timeslot a:focus {
+  background-color: rgba(151, 197, 228, 0.562);
+  transition: all 1s;
 }
 
 .slot-number {
@@ -76,4 +96,19 @@ header h2 {
 
 .slot-info p + p {
   margin-top: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+  .timeslots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1px;
+  }
+  .timeslots-base {
+    background-color: rgba(218, 217, 217, 0.438);
+  }
+  .timeslot {
+    background-color: #fff;
+  }
 }
