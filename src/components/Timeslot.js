@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class Timeslot extends Component {
   render() {
     const { time, name, phone } = this.props;
+
     return (
       <div className="timeslot">
         <div className="slot-number">

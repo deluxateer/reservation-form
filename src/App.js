@@ -5,6 +5,10 @@ import Modal from "./components/Modal";
 import Timeslots from './components/Timeslots';
 
 class App extends Component {
+  componentDidMount() {
+    window.M.AutoInit();
+  }
+
   render() {
     return (
       <React.Fragment>
