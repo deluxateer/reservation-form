@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   background: linear-gradient(135deg, #3a90e8, #a1ddf8) fixed;
+  color: #565B5C;
 }
 
 #temp {
@@ -10,3 +11,69 @@ html, body {
   padding: 3.5rem 0;
 }
 
+header {
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.timeslot-base {
+  background-color: #fff;
+}
+
+.timeslot-header {
+  background-color: #85C8F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .78rem;
+}
+
+.timeslot-base h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+}
+
+.timeslot {
+  display: grid;
+  grid-template-rows: 2.4rem auto;
+}
+
+.timeslot a {
+  color: #000;
+}
+
+.slot-number {
+  background-color: #BDE5FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-number p {
+  color: #1A7FDC;
+  margin: 0;
+}
+
+.slot-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-info div {
+  padding: 12px 0;
+}
+
+.slot-info p + p {
+  margin-top: 0;
+}

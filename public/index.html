@@ -20,6 +20,17 @@
       <p>Please select an available timeslot for your appointment.</p>
     </header>
     <main>
+      <!-- Modal Content -->
+      <div id="editInfo" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+      <!-- Timeslots -->
       <div class="timeslot-base">
         <div class="timeslot-header">
           <h3>Hours</h3>
@@ -29,88 +40,127 @@
             <div class="slot-number">
               <p>9am</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>10am</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>11am</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>12pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>1pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>2pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>3pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>4pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
           <div class="timeslot">
             <div class="slot-number">
               <p>5pm</p>
             </div>
-            <div class="slot-info">
-              <p>Name: John Doe</p>
-              <p>Phone: xxxxxxxxxx</p>
-            </div>
+            <a class="modal-trigger" href="#editInfo">
+              <div class="slot-info">
+                <div>
+                  <p>Name: John Doe</p>
+                  <p>Phone: xxxxxxxxxx</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </main>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    M.AutoInit();
+  </script>
 </body>
 
 </html>
