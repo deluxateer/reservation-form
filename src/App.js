@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Provider } from 'react-redux';
 
 import Modal from "./components/Modal";
 import Timeslots from './components/Timeslots';
+
+import store from './store';
 
 class App extends Component {
   componentDidMount() {
@@ -11,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <header>
           <h2>Thank you for selecting our service!</h2>
           <p>Please select an available timeslot for your appointment.</p>
@@ -20,7 +23,7 @@ class App extends Component {
           <Modal />
           <Timeslots />
         </main>
-      </React.Fragment>
+      </Provider>
     );
   }
 }

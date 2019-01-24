@@ -27,7 +27,7 @@ class Modal extends Component {
     return (
       <div id="editInfo" className="modal">
         <div className="modal-content">
-          <h4>Modal Header</h4>
+          <h4>Edit Info</h4>
           <p>Please enter your name and phone number.</p>
           <div className="row">
             <form className="col s12" onSubmit={this.onSubmit}>

@@ -1,32 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Timeslot from './Timeslot';
 
 class Timeslots extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      slots: [
-        { id: 1, time: '9am', name: 'N/A', phone: 'N/A' },
-        { id: 2, time: '10am', name: 'N/A', phone: 'N/A' },
-        { id: 3, time: '11am', name: 'N/A', phone: 'N/A' },
-        { id: 4, time: '12pm', name: 'N/A', phone: 'N/A' },
-        { id: 5, time: '1pm', name: 'N/A', phone: 'N/A' },
-        { id: 6, time: '2pm', name: 'N/A', phone: 'N/A' },
-        { id: 7, time: '3pm', name: 'N/A', phone: 'N/A' },
-        { id: 8, time: '4pm', name: 'N/A', phone: 'N/A' },
-        { id: 9, time: '5pm', name: 'N/A', phone: 'N/A' }
-      ]
-    };
-  }
 
   render() {
-    const timeSlots = this.state.slots.map(slot => (
+    const timeSlots = this.props.slotItems.map(slotItem => (
       <Timeslot
-        key={slot.id}
-        time={slot.time}
-        name={slot.name}
-        phone={slot.phone}></Timeslot>
+        key={slotItem.id}
+        time={slotItem.time}
+        name={slotItem.name}
+        phone={slotItem.phone}></Timeslot>
     ));
 
     return (
@@ -42,4 +28,12 @@ class Timeslots extends Component {
   }
 }
 
-export default Timeslots;
+Timeslots.propTypes = {
+  slotItems: PropTypes.array.isRequired
+}
+
+const mapStateToProps = state => ({
+  slotItems: state.slots.slotItems
+});
+
+export default connect(mapStateToProps, {})(Timeslots);
