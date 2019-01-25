@@ -10,6 +10,7 @@ class Timeslots extends Component {
     const timeSlots = this.props.slotItems.map(slotItem => (
       <Timeslot
         key={slotItem.id}
+        id={slotItem.id}
         time={slotItem.time}
         name={slotItem.name}
         phone={slotItem.phone}></Timeslot>
@@ -32,8 +33,6 @@ Timeslots.propTypes = {
   slotItems: PropTypes.array.isRequired
 }
 
-const mapStateToProps = state => ({
+export default connect(state => ({
   slotItems: state.slots.slotItems
-});
-
-export default connect(mapStateToProps, {})(Timeslots);
+}))(Timeslots);

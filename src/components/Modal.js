@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { submitInfo } from '../actions/slotActions';
 
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      phone: ''
-    };
+    this.name = React.createRef();
+    this.phone = React.createRef();
   }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -14,16 +15,30 @@ class Modal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { name, phone } = this.state;
     const slotInfo = {
-      name,
-      phone
+      id: this.props.slotInfo.id,
+      name: this.name.current.value,
+      phone: this.phone.current.value,
+      isOccupied: true
     }
 
-    console.log(slotInfo);
+    this.props.submitInfo(slotInfo);
+  }
+
+  componentDidUpdate() {
+    // prevents labels from overlapping with prepopulated info
+    window.M.updateTextFields();
+
+    console.log(this.state);
+
+
+    // this.name.current = this.props.slotInfo.name;
+    // this.phone.current = this.props.slotInfo.phone;
   }
 
   render() {
+    const { slotInfo } = this.props;
+
     return (
       <div id="editInfo" className="modal">
         <div className="modal-content">
@@ -36,20 +51,20 @@ class Modal extends Component {
                   id="name"
                   name="name"
                   type="text"
-                  className="validate"
-                  value={this.state.name}
+                  ref={this.name}
+                  defaultValue={slotInfo.name}
                   onChange={this.onChange} />
-                <label htmlFor="name">First Name</label>
+                <label htmlFor="name">Name</label>
               </div>
               <div className="input-field">
                 <input
                   id="phone"
                   name="phone"
                   type="tel"
-                  className="validate"
-                  value={this.state.phone}
+                  ref={this.phone}
+                  defaultValue={slotInfo.phone}
                   onChange={this.onChange} />
-                <label htmlFor="phone">Telephone</label>
+                <label htmlFor="phone">Phone</label>
               </div>
               <button type="submit" className="btn modal-close waves-effect waves-blue blue lighten-1">Submit</button>
             </form>
@@ -60,4 +75,11 @@ class Modal extends Component {
   }
 }
 
-export default Modal;
+Modal.propTypes = {
+  slotInfo: PropTypes.object.isRequired,
+  submitInfo: PropTypes.func.isRequired
+}
+
+export default connect(state => ({
+  slotInfo: state.slots.slotInfo
+}), { submitInfo })(Modal);
