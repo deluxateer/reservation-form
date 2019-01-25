@@ -13,7 +13,7 @@ class Timeslots extends Component {
         id={slotItem.id}
         time={slotItem.time}
         name={slotItem.name}
-        phone={slotItem.phone}></Timeslot>
+        phone={slotItem.phone} />
     ));
 
     return (

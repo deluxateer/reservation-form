@@ -1,23 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class InputField extends Component {
+class InputField extends Component {
 
   constructor(props) {
     super(props);
     const { value } = this.props;
-    this.state = {
-      value
-    }
-  }
 
-  // onChange = e => this.setState({ value: e.target.value }, this.props.trackChange(this.props.name, this.state.value));
+    this.state = { value }
+  }
 
   onChange = e => this.setState({ value: e.target.value });
 
   componentDidUpdate(prevProps, prevState) {
+    // updates parent component (modal) with new input so they are synchronized
     if (prevState.value !== this.state.value) {
-      // this.setState({ value: this.state.value })
-      this.props.trackChange(this.props.name, this.state.value)
+      this.props.trackChange(this.props.name, this.state.value);
     }
   }
 
@@ -37,3 +35,13 @@ export default class InputField extends Component {
     )
   }
 }
+
+InputField.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  trackChange: PropTypes.func.isRequired
+}
+
+export default InputField;

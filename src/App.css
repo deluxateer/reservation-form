@@ -1,14 +1,9 @@
+/* General */
+
 html, body {
   height: 100%;
   background: linear-gradient(135deg, #3a90e8, #a1ddf8) fixed;
 }
-
-/* #temp {
-  min-height: 100%;
-  width: 73%;
-  margin: 0 auto;
-  padding: 3.5rem 0;
-} */
 
 #root {
   min-height: 100%;
@@ -25,6 +20,8 @@ main {
   width: 100%;
 }
 
+/* Intro Content */
+
 header {
   margin-bottom: 3rem;
   color: #fff;
@@ -36,6 +33,8 @@ header h2 {
   line-height: 1.4;
   margin: 0;
 }
+
+/* Timeslots */
 
 .timeslots-base {
   background-color: #fff;
@@ -102,7 +101,6 @@ header h2 {
   background-color: red;
   color: #fff;
 }
-
 
 @media screen and (min-width: 768px) {
   .timeslots {

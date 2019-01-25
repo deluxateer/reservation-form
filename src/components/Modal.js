@@ -8,17 +8,13 @@ import InputField from './InputField';
 class Modal extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       name: '',
       phone: '',
       prevPropID: ''
     }
   }
-
-  // onChange = e => this.setState({
-  //   [e.target.name]: e.target.value
-  //   // ,prevPropID: this.props.slotInfo.id
-  // });
 
   onChange = (type, fieldValue) => this.setState({ [type]: fieldValue });
 
@@ -29,7 +25,6 @@ class Modal extends Component {
       id: this.props.slotInfo.id,
       name: this.state.name,
       phone: this.state.phone
-      // ,isOccupied: true
     }
 
     this.props.submitInfo(slotInfo);
@@ -50,6 +45,8 @@ class Modal extends Component {
   }
 
   render() {
+    const { id, name, phone } = this.props.slotInfo
+
     return (
       <div id="editInfo" className="modal">
         <div className="modal-content">
@@ -58,18 +55,18 @@ class Modal extends Component {
           <div className="row">
             <form className="col s12" onSubmit={this.onSubmit}>
               <InputField
-                key={`name-${this.props.slotInfo.id}`}
+                key={`name-${id}`}
                 id="name"
                 name="name"
                 type="text"
-                value={this.props.slotInfo.name}
+                value={name}
                 trackChange={this.onChange} />
               <InputField
-                key={`phone-${this.props.slotInfo.id}`}
+                key={`phone-${id}`}
                 id="phone"
                 name="phone"
                 type="tel"
-                value={this.props.slotInfo.phone}
+                value={phone}
                 trackChange={this.onChange} />
               <button type="submit" className="btn modal-close waves-effect waves-blue blue lighten-1">Submit</button>
             </form>

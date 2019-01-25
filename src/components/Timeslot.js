@@ -17,6 +17,7 @@ class Timeslot extends Component {
 
   render() {
     const { time, name, phone, id, slotItems } = this.props;
+
     return (
       <div className="timeslot">
         <div className="slot-number">
@@ -40,6 +41,7 @@ class Timeslot extends Component {
 
 Timeslot.propTypes = {
   time: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   fetchInfo: PropTypes.func.isRequired,

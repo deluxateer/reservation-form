@@ -12,7 +12,11 @@ const initialState = {
     { id: 8, time: '4pm', name: '', phone: '', isOccupied: false },
     { id: 9, time: '5pm', name: '', phone: '', isOccupied: false }
   ],
-  slotInfo: {}
+  slotInfo: {
+    id: '',
+    name: '',
+    phone: ''
+  }
 }
 
 export default function (state = initialState, action) {
@@ -45,7 +49,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         slotItems: updatedSlotItems,
-        slotInfo: {}
+        slotInfo: {
+          id: '',
+          name: '',
+          phone: ''
+        }
       }
 
     default:
