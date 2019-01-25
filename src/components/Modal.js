@@ -20,9 +20,7 @@ class Modal extends Component {
   //   // ,prevPropID: this.props.slotInfo.id
   // });
 
-  onChange2 = (type, fieldValue) => this.setState({
-    [type]: fieldValue
-  });
+  onChange = (type, fieldValue) => this.setState({ [type]: fieldValue });
 
   onSubmit = e => {
     e.preventDefault();
@@ -30,8 +28,8 @@ class Modal extends Component {
     const slotInfo = {
       id: this.props.slotInfo.id,
       name: this.state.name,
-      phone: this.state.phone,
-      isOccupied: true
+      phone: this.state.phone
+      // ,isOccupied: true
     }
 
     this.props.submitInfo(slotInfo);
@@ -59,38 +57,20 @@ class Modal extends Component {
           <p>Please enter your name and phone number.</p>
           <div className="row">
             <form className="col s12" onSubmit={this.onSubmit}>
-              <div className="input-field">
-                {/* <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={this.state.name}
-                  onChange={this.onChange} /> */}
-                <InputField
-                  key={`name-${this.props.slotInfo.id}`}
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={this.props.slotInfo.name}
-                  trackChange={this.onChange2} />
-                <label htmlFor="name">Name</label>
-              </div>
-              <div className="input-field">
-                {/* <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={this.state.phone}
-                  onChange={this.onChange} /> */}
-                <InputField
-                  key={`phone-${this.props.slotInfo.id}`}
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={this.props.slotInfo.phone}
-                  trackChange={this.onChange2} />
-                <label htmlFor="phone">Phone</label>
-              </div>
+              <InputField
+                key={`name-${this.props.slotInfo.id}`}
+                id="name"
+                name="name"
+                type="text"
+                value={this.props.slotInfo.name}
+                trackChange={this.onChange} />
+              <InputField
+                key={`phone-${this.props.slotInfo.id}`}
+                id="phone"
+                name="phone"
+                type="tel"
+                value={this.props.slotInfo.phone}
+                trackChange={this.onChange} />
               <button type="submit" className="btn modal-close waves-effect waves-blue blue lighten-1">Submit</button>
             </form>
           </div>

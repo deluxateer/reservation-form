@@ -25,12 +25,15 @@ export default class InputField extends Component {
     const { value } = this.state;
     const { name, type } = this.props;
     return (
-      <input
-        id={name}
-        name={name}
-        type={type}
-        value={value}
-        onChange={this.onChange} />
+      <div className="input-field">
+        <input
+          id={name}
+          name={name}
+          type={type}
+          value={value}
+          onChange={this.onChange} />
+        <label htmlFor={name}>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
+      </div>
     )
   }
 }

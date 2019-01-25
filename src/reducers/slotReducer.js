@@ -2,15 +2,15 @@ import { FETCH_INFO, SUBMIT_INFO } from '../actions/types';
 
 const initialState = {
   slotItems: [
-    { id: 1, time: '9am', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 2, time: '10am', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 3, time: '11am', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 4, time: '12pm', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 5, time: '1pm', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 6, time: '2pm', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 7, time: '3pm', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 8, time: '4pm', name: 'N/A', phone: 'N/A', isOccupied: false },
-    { id: 9, time: '5pm', name: 'N/A', phone: 'N/A', isOccupied: false }
+    { id: 1, time: '9am', name: '', phone: '', isOccupied: false },
+    { id: 2, time: '10am', name: '', phone: '', isOccupied: false },
+    { id: 3, time: '11am', name: '', phone: '', isOccupied: false },
+    { id: 4, time: '12pm', name: '', phone: '', isOccupied: false },
+    { id: 5, time: '1pm', name: '', phone: '', isOccupied: false },
+    { id: 6, time: '2pm', name: '', phone: '', isOccupied: false },
+    { id: 7, time: '3pm', name: '', phone: '', isOccupied: false },
+    { id: 8, time: '4pm', name: '', phone: '', isOccupied: false },
+    { id: 9, time: '5pm', name: '', phone: '', isOccupied: false }
   ],
   slotInfo: {}
 }
@@ -28,15 +28,15 @@ export default function (state = initialState, action) {
       const updatedSlotItems = state.slotItems.map(slotItem => {
         if (slotItem.id === action.payload.id) {
           // checks if slot is empty and unoccupied
-          // let isOccupied;
-          // if (action.payload.name === '' && action.payload.phone === '') {
-          //   isOccupied = false;
-          // } else {
-          //   isOccupied = true;
-          // }
+          let isOccupied = false;
+          if (action.payload.name !== '' && action.payload.phone !== '') {
+            isOccupied = true;
+          }
+
           slotItem = {
             ...slotItem,
-            ...action.payload
+            ...action.payload,
+            isOccupied
           }
         }
         return slotItem;

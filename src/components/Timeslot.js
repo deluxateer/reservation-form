@@ -16,8 +16,7 @@ class Timeslot extends Component {
   }
 
   render() {
-    const { time, name, phone } = this.props;
-
+    const { time, name, phone, id, slotItems } = this.props;
     return (
       <div className="timeslot">
         <div className="slot-number">
@@ -27,7 +26,7 @@ class Timeslot extends Component {
           className="modal-trigger"
           href="#editInfo"
           onClick={this.populateForm}>
-          <div className="slot-info">
+          <div className={slotItems[id - 1].isOccupied ? "slot-info occupied" : "slot-info"}>
             <div>
               <p>Name: {name}</p>
               <p>Phone: {phone}</p>
@@ -43,7 +42,10 @@ Timeslot.propTypes = {
   time: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  fetchInfo: PropTypes.func.isRequired
+  fetchInfo: PropTypes.func.isRequired,
+  slotItems: PropTypes.array.isRequired
 }
 
-export default connect(null, { fetchInfo })(Timeslot);
+export default connect(state => ({
+  slotItems: state.slots.slotItems
+}), { fetchInfo })(Timeslot);
