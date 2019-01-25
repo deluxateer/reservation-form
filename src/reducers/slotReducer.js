@@ -27,6 +27,13 @@ export default function (state = initialState, action) {
       // replaces the slot holding old info with a slot holding new info
       const updatedSlotItems = state.slotItems.map(slotItem => {
         if (slotItem.id === action.payload.id) {
+          // checks if slot is empty and unoccupied
+          // let isOccupied;
+          // if (action.payload.name === '' && action.payload.phone === '') {
+          //   isOccupied = false;
+          // } else {
+          //   isOccupied = true;
+          // }
           slotItem = {
             ...slotItem,
             ...action.payload

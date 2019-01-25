@@ -3,42 +3,55 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitInfo } from '../actions/slotActions';
 
+import InputField from './InputField';
+
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.name = React.createRef();
-    this.phone = React.createRef();
+    this.state = {
+      name: '',
+      phone: '',
+      prevPropID: ''
+    }
   }
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  // onChange = e => this.setState({
+  //   [e.target.name]: e.target.value
+  //   // ,prevPropID: this.props.slotInfo.id
+  // });
+
+  onChange2 = (type, fieldValue) => this.setState({
+    [type]: fieldValue
+  });
 
   onSubmit = e => {
     e.preventDefault();
 
     const slotInfo = {
       id: this.props.slotInfo.id,
-      name: this.name.current.value,
-      phone: this.phone.current.value,
+      name: this.state.name,
+      phone: this.state.phone,
       isOccupied: true
     }
 
     this.props.submitInfo(slotInfo);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     // prevents labels from overlapping with prepopulated info
     window.M.updateTextFields();
 
-    console.log(this.state);
-
-
-    // this.name.current = this.props.slotInfo.name;
-    // this.phone.current = this.props.slotInfo.phone;
+    // repopulates form fields with selected slot's info
+    if (this.props.slotInfo.id !== prevProps.slotInfo.id) {
+      this.setState({
+        prevPropID: this.props.slotInfo.id,
+        name: this.props.slotInfo.name,
+        phone: this.props.slotInfo.phone
+      })
+    }
   }
 
   render() {
-    const { slotInfo } = this.props;
-
     return (
       <div id="editInfo" className="modal">
         <div className="modal-content">
@@ -47,23 +60,35 @@ class Modal extends Component {
           <div className="row">
             <form className="col s12" onSubmit={this.onSubmit}>
               <div className="input-field">
-                <input
+                {/* <input
                   id="name"
                   name="name"
                   type="text"
-                  ref={this.name}
-                  defaultValue={slotInfo.name}
-                  onChange={this.onChange} />
+                  value={this.state.name}
+                  onChange={this.onChange} /> */}
+                <InputField
+                  key={`name-${this.props.slotInfo.id}`}
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={this.props.slotInfo.name}
+                  trackChange={this.onChange2} />
                 <label htmlFor="name">Name</label>
               </div>
               <div className="input-field">
-                <input
+                {/* <input
                   id="phone"
                   name="phone"
                   type="tel"
-                  ref={this.phone}
-                  defaultValue={slotInfo.phone}
-                  onChange={this.onChange} />
+                  value={this.state.phone}
+                  onChange={this.onChange} /> */}
+                <InputField
+                  key={`phone-${this.props.slotInfo.id}`}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={this.props.slotInfo.phone}
+                  trackChange={this.onChange2} />
                 <label htmlFor="phone">Phone</label>
               </div>
               <button type="submit" className="btn modal-close waves-effect waves-blue blue lighten-1">Submit</button>
